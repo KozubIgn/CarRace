@@ -3,7 +3,7 @@ public class Truck{
     private int turnsBroken = 0;
 
     public Truck(){
-        name= getRandomName();
+        name = generateRandomName();
         actualSpeed = 100;
     }
     private String generateRandomName(){
@@ -27,5 +27,13 @@ public class Truck{
     public boolean isBroken(){
         return breakdownTurnsLeft;
     }
-    
+    private void riskBreakDown(){
+        Random random = new Random();
+        double breakdownChance = random.nextDouble();
+
+        if(breakdownChance <= 0.05){
+            breakdownTurnsLeft = true;
+        }
+    }
+
 }
